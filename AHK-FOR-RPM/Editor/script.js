@@ -1117,7 +1117,7 @@ function saveActionItem() {
 	const bind = actionBind.value.trim()
 	const type = actionType.value
 
-	if (!name) {
+	if (!name || !bind) {
 		showNotification('Заполните обязательные поля', 'error')
 		return
 	}
@@ -1402,7 +1402,7 @@ function saveWindowItem() {
 	const bind = windowBind.value.trim()
 	const elements = windowElements.value.trim()
 
-	if (!name || !label || !elements) {
+	if (!name || !label || !elements || !bind) {
 		showNotification('Заполните обязательные поля', 'error')
 		return
 	}
@@ -1633,16 +1633,16 @@ function generateExportCode(config) {
 				processedContent = action.content
 			}
 
-			code += `    i["${action.bind}"] := ["${action.bind}", "RPAction", ${processedContent}]\n`
+			code += `    i["${action.name}"] := ["${action.bind}", "RPAction", ${processedContent}]\n`
 		} else {
 			const regex = /^([a-zA-Z_][a-zA-Z0-9_]*)\s*\(/
 			const content = action.content.trim()
 			const functionName = content.match(regex)
 
 			if (functionName && functionName[1]) {
-				code += `    i["${action.bind}"] := ["${action.bind}", "Func", ${functionName[1]}]\n`
+				code += `    i["${action.name}"] := ["${action.bind}", "Func", ${functionName[1]}]\n`
 			} else {
-				code += `    i["${action.bind}"] := ["${action.bind}", "Func", ${action.content}]\n`
+				code += `    i["${action.name}"] := ["${action.bind}", "Func", ${action.content}]\n`
 			}
 		}
 	})
