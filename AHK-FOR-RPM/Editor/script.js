@@ -1601,6 +1601,8 @@ function generateExportCode(config) {
 	code += `global GBinds_cfg := Map()\n`
 	code += `global GBindsAction_cfg := Map()\n\n`
 
+	code += `Init() ; AFR v.2.2 \n\n`
+
 	code += `InitGBinds(i) {\n`
 	config.binds.forEach(bind => {
 		code += `    i["${bind.name}"] := ['${bind.key}', "${bind.desc}"]\n`
