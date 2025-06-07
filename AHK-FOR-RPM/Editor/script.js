@@ -24,7 +24,7 @@ const editorTitle = document.getElementById('editorTitle')
 const saveEditor = document.getElementById('saveEditor')
 const deleteConfigBtn = document.getElementById('deleteConfigBtn')
 const copyCodeBtn = document.getElementById('copyCodeBtn')
-const importConfigBtn = document.getElementById('importConfigBtn')
+const headerImportConfigBtn = document.getElementById('importConfigBtn') 
 const exportConfigBtn = document.getElementById('exportConfigBtn')
 const buildConfigBtn = document.getElementById('buildConfigBtn')
 const exportText = document.querySelector('.export-text')
@@ -113,6 +113,7 @@ const cancelImportModal = document.getElementById('cancelImportModal')
 const importCode = document.getElementById('importCode')
 const importCodeBtn = document.getElementById('importCodeBtn')
 const importConfirmModal = document.getElementById('importConfirmModal')
+const importConfigBtnEditor = document.getElementById('importConfigBtnEditor'); 
 const closeImportConfirmModal = document.getElementById('closeImportConfirmModal')
 const cancelImportConfirmModal = document.getElementById('cancelImportConfirmModal')
 const createNewConfig_ = document.getElementById('createNewConfig')
@@ -211,9 +212,14 @@ function setupEventListeners() {
 
 	saveConfig.addEventListener('click', createNewConfig)
 
-	closeEditorModal.addEventListener('click', () =>
+	closeEditorModal.addEventListener('click', () => {
 		editorModal.classList.remove('active')
-	)
+		currentConfigId = null 
+	})
+
+	saveEditor.addEventListener('click', saveCurrentConfig)
+	deleteConfigBtn.addEventListener('click', deleteCurrentConfig)
+	
 
 	deleteConfigBtn.addEventListener('click', deleteCurrentConfig)
 
@@ -221,9 +227,13 @@ function setupEventListeners() {
 
 	copyCodeBtn.addEventListener('click', copyExportCode)
 
-	importConfigBtn.addEventListener('click', () =>
+	headerImportConfigBtn.addEventListener('click', () => 
 		importModal.classList.add('active')
 	)
+
+	if(importConfigBtnEditor) { 
+		importConfigBtnEditor.addEventListener('click', () => importModal.classList.add('active'));
+	}
 
 	buildConfigBtn.addEventListener('click', () => {
 		showNotification("Ссылка открыта в новой вкладке", "info")
@@ -360,6 +370,8 @@ function setupEventListeners() {
 				document.getElementById('importConfirmModal').classList.add('active')
 			} else {
 				createNewConfigFromImport(importedConfigData)
+				importCode.value = ''; 
+				importModal.classList.remove('active'); 
 			}
 		} catch (err) {
 			console.error('Ошибка импорта JSON:', err)
@@ -375,6 +387,7 @@ function setupEventListeners() {
 			createNewConfigFromImport(window.importedConfigData)
 			document.getElementById('importConfirmModal').classList.remove('active')
 			importModal.classList.remove('active')
+			importCode.value = '';
 			window.importedConfigData = null
 		}
 	})
@@ -384,6 +397,7 @@ function setupEventListeners() {
 			replaceCurrentConfig(window.importedConfigData)
 			document.getElementById('importConfirmModal').classList.remove('active')
 			importModal.classList.remove('active')
+			importCode.value = '';
 			window.importedConfigData = null
 		}
 	})
@@ -632,6 +646,7 @@ function saveCurrentConfig() {
 
 	saveToLocalStorage()
 	editorModal.classList.remove('active')
+	currentConfigId = null
 	renderConfigs()
 
 	showNotification('Конфиг успешно сохранен', 'success')
@@ -643,6 +658,7 @@ function deleteCurrentConfig() {
 	configs = configs.filter(c => c.id !== currentConfigId)
 	saveToLocalStorage()
 	editorModal.classList.remove('active')
+	currentConfigId = null 
 	renderConfigs()
 
 	showNotification('Конфиг удален', 'warning')
@@ -1621,8 +1637,8 @@ function generateExportCode(config) {
 					processedContent = action.content.replace(
 						rpActionRegex,
 						(match, type, content, sleepBefore, sleepAfter) => {
-							const escapedContent = content.replace(/"/g, '\\"')
-							return `["${type}", "${escapedContent}", ${sleepBefore}, ${sleepAfter}]`
+							const escapedContent = content.replace(/\\"/g, '"')
+							return `["${type}", "${escapedContent.replace(/\\/g, '')}", ${sleepBefore}, ${sleepAfter}]`
 						}
 					)
 				} else {
@@ -1633,7 +1649,7 @@ function generateExportCode(config) {
 				processedContent = action.content
 			}
 
-			code += `    i["${action.name}"] := ["${action.bind}", "RPAction", ${processedContent}]\n`
+			code += `    i["${action.name}"] := ["${action.bind}", "RPAction", ${processedContent.replace(/\\/g, '')}]\n`
 		} else {
 			const regex = /^([a-zA-Z_][a-zA-Z0-9_]*)\s*\(/
 			const content = action.content.trim()

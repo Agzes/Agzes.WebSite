@@ -16,13 +16,18 @@
                         <i class="fas fa-book btn-icon"></i> Wiki
                     </button>
                 </a>
-                <h1>AFR Editor [v.2.2]</h1>
+                <h1>2.2 • AFR Editor </h1>
                 <h6> by Agzes <br> MIT License </h6>
             </div>
             
-            <button id="newConfigBtn" class="btn">
-                <i class="fas fa-plus btn-icon"></i> Новый конфиг
-            </button>
+            <div>
+                <button id="importConfigBtn" class="btn btn-secondary">
+                    <i class="fas fa-file-import btn-icon"></i>Импорт
+                </button>
+                <button id="newConfigBtn" class="btn">
+                    <i class="fas fa-plus btn-icon"></i> Новый конфиг
+                </button>
+            </div>
         </header>
 
         <div class="config-grid" id="configGrid">
@@ -205,7 +210,7 @@
                             <button class="btn" id="copyCodeBtn" style="margin: 5px;">
                                 <i class="fas fa-copy btn-icon"></i> <span class="export-text">Копировать</span>
                             </button>
-                            <button class="btn btn-secondary" style="margin: 5px;" id="importConfigBtn">
+                            <button class="btn btn-secondary" style="margin: 5px;" id="importConfigBtnEditor">
                                 <i class="fas fa-file-import btn-icon"></i> Импорт (JSON)
                             </button>
                             <button class="btn btn-warning" style="margin: 5px;" id="buildConfigBtn">
