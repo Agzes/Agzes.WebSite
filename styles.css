@@ -1,6 +1,6 @@
 /* --- Background and containers --- */
 body {
-    background: radial-gradient(ellipse at 50% 30%, #23243a 0%, #181828 100%);
+    background: #101010;
     color: #e6e6fa;
     font-family: 'Source Code Pro', monospace;
     margin: 0;
@@ -23,7 +23,7 @@ body {
     top: 0; left: 0;
     width: 100vw; height: 100vh;
     z-index: 0;
-    background: linear-gradient(120deg, #23243a 0%, #39396b 110%);
+    background: #101010;
     overflow: hidden;
     opacity: 0.92;
 }
@@ -47,8 +47,8 @@ body {
     justify-content: start;
     padding: 2.1rem 0 1.3rem 0;
     font-family: 'Dela Gothic One', sans-serif;
-    color: #7ecfff;
-    text-shadow: 0 2px 16px #23243a;
+    color: #ffc799;
+    text-shadow: 0 2px 16px #101010;
     background: transparent;
 }
 
@@ -57,7 +57,7 @@ body {
     font-size: 2.4rem;
     letter-spacing: 2.5px;
     color: #fff;
-    text-shadow: 0 2px 16px #4e4376;
+    text-shadow: 0 2px 16px #33281e;
     font-weight: bold;
 }
 
@@ -72,16 +72,16 @@ body {
     font-size: 2.7rem;
     letter-spacing: 2.5px;
     color: #fff;
-    text-shadow: 0 2px 16px #4e4376;
+    text-shadow: 0 2px 16px #33281e;
     font-weight: bold;
 }
 
 /* --- Glass effect --- */
 .glass {
-    background: rgba(40, 48, 80, 0.46);
-    border: 1.5px solid rgba(126,207,255,0.13);
+    background: rgba(255, 199, 153, 0.05);
+    border: 1.5px solid rgba(255, 199, 153, 0.13);
     border-radius: 18px;
-    box-shadow: 0 4px 32px 0 rgba(126,207,255,0.10);
+    box-shadow: 0 4px 32px 0 rgba(255, 199, 153, 0.10);
     backdrop-filter: blur(15px) saturate(140%);
 }
 
@@ -104,18 +104,18 @@ body {
 }
 
 .section:hover {
-    box-shadow: 0 8px 40px 0 rgba(126,207,255,0.27), 0 2px 0 0 #7ecfff44;
-    background: rgba(36, 54, 94, 0.58);
+    box-shadow: 0 8px 40px 0 rgba(255, 199, 153, 0.2), 0 2px 0 0 #ffc79944;
+    background: rgba(255, 199, 153, 0.1);
 }
 
 h2 {
-    border-bottom: 2px solid #7ecfff;
+    border-bottom: 2px solid #ffc799;
     padding-bottom: 0.45rem;
     margin-top: 0;
     font-size: 1.45rem;
     letter-spacing: 1px;
-    color: #7ecfff;
-    text-shadow: 0 1px 9px #23243a;
+    color: #ffc799;
+    text-shadow: 0 1px 9px #101010;
     font-family: 'Dela Gothic One', sans-serif;
     margin-bottom: 1.1rem;
     text-align: left;
@@ -146,13 +146,13 @@ h2 {
 }
 
 .skills-list li {
-    background: rgba(126, 207, 255, 0.14);
+    background: rgba(255, 199, 153, 0.14);
     border-radius: 10px;
     padding: 0.36em 1.2em 0.36em 0.7em;
     margin: 0.18em 0;
     color: #ccf7ff;
     font-weight: 500;
-    box-shadow: 0 2px 8px 0 #23243a10;
+    box-shadow: 0 2px 8px 0 #10101010;
     display: flex;
     align-items: center;
     gap: 0.4em;
@@ -160,7 +160,7 @@ h2 {
 }
 
 .skills-list li:hover {
-    background: rgba(126, 207, 255, 0.23);
+    background: rgba(255, 199, 153, 0.23);
     color: #aaf4ff;
 }
 
@@ -197,13 +197,13 @@ h2 {
 }
 
 .contacts-list-ya li {
-    background: rgba(126, 207, 255, 0.14);
+    background: rgba(255, 199, 153, 0.14);
     border-radius: 10px;
     padding: 0.36em 1.2em 0.36em 0.7em;
     margin: 0.18em 0;
     color: #ccf7ff;
     font-weight: 500;
-    box-shadow: 0 2px 8px 0 #23243a10;
+    box-shadow: 0 2px 8px 0 #10101010;
     display: flex;
     align-items: center;
     gap: 0.4em;
@@ -214,7 +214,7 @@ h2 {
 }
 
 .contacts-list-ya li:hover {
-    background: rgba(126, 207, 255, 0.23);
+    background: rgba(255, 199, 153, 0.23);
     color: #aaf4ff;
 }
 
@@ -244,7 +244,7 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    filter: drop-shadow(0 1px 6px #71dfff33);
+    filter: drop-shadow(0 1px 6px #ffc79933);
     background: none !important;
     border-radius: 0;
     box-shadow: none;
@@ -261,7 +261,7 @@ h2 {
 
 .contact-btn-ya .contact-nick {
     margin-left: 0.23em;
-    color: #7ecfff;
+    color: #ffc799;
     min-width: 0;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -269,9 +269,9 @@ h2 {
 }
 
 .contact-btn-ya:hover {
-    background: rgba(126, 207, 255, 0.07);
+    background: rgba(255, 199, 153, 0.07);
     color: #96f3ff;
-    box-shadow: 0 4px 16px rgba(126, 207, 255, 0.2); 
+    box-shadow: 0 4px 16px rgba(255, 199, 153, 0.2); 
 }
 
 /* --- Projects grid --- */
@@ -295,10 +295,10 @@ h2 {
     max-width: 400px;
     min-height: 200px;
     padding: 1.2em 1.2em 1.4em 1.2em;
-    background: linear-gradient(120deg, rgba(19,27,55,0.9) 0%, rgba(46,54,100,0.80) 100%);
+    background: linear-gradient(120deg, rgba(25, 20, 15, 0.9) 0%, rgba(51, 40, 31, 0.8) 100%);
     border-radius: 18px;
-    box-shadow: 0 8px 36px 0 #7ecfff25, 0 0px 1px 0 #192a3a18;
-    border: 1.2px solid #89e4ff22;
+    box-shadow: 0 8px 36px 0 #ffc79925, 0 0px 1px 0 #19141018;
+    border: 1.2px solid #ffc79922;
     text-decoration: none;
     color: #e6ebfb;
     position: relative;
@@ -321,9 +321,9 @@ h2 {
 
 .project-tile-ya:hover {
     transform: translateY(-5px) scale(1.032) rotate(-0.4deg);
-    box-shadow: 0 15px 62px 0 #81e2ff49, 0 4px 14px 0 #1d355e50;
-    border-color: #7ecfff;
-    background: linear-gradient(106deg, #11284a 0%, #265e86 80%);
+    box-shadow: 0 15px 62px 0 #ffc79949, 0 4px 14px 0 #33281e50;
+    border-color: #ffc799;
+    background: linear-gradient(106deg, #2b2118 0%, #4d3c2d 80%);
     color: #fff;
 }
 
@@ -337,9 +337,9 @@ h2 {
 .proj-title {
     display: block;
     font-size: 1.17rem;
-    color: #7ecfff;
+    color: #ffc799;
     font-family: 'Dela Gothic One', sans-serif;
-    text-shadow: 0 1px 9px #1d405f4e;
+    text-shadow: 0 1px 9px #33281e4e;
     margin-bottom: 0.33em;
     font-weight: 600;
 }
@@ -376,7 +376,7 @@ h2 {
     top: 0;
     bottom: 0;
     width: 4px;
-    background-color: var(--project-line-color, #7ecfff);
+    background-color: var(--project-line-color, #ffc799);
 }
 
 .more-projects {
@@ -390,14 +390,14 @@ h2 {
     width: 10px;
 }
 ::-webkit-scrollbar-track {
-    background: #39396b;
+    background: #2b2118;
 }
 ::-webkit-scrollbar-thumb {
-    background: #222339;
+    background: #4d3c2d;
     border-radius: 8px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #23243a;
+    background: #5e4a3a;
 }
 
 /* --- Responsive --- */
@@ -454,8 +454,3 @@ h2 {
     .skills-list li, .contacts-list-ya li { padding: 0.5em 1em; }
     .project-tile-ya { padding: 1.2em; }
 }
-
-
-
-
-
