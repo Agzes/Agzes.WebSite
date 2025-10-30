@@ -335,6 +335,10 @@ h1 {
     padding-top: 15px;
     border-top: 1px solid var(--border);
 }
+.modal-content-large {
+    width: 90%;
+    max-width: 2500px;
+}
 .code-block {
     background-color: var(--bg-dark);
     border-radius: 4px;
